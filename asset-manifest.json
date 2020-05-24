@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/places/static/css/main.121f05a1.chunk.css",
+    "main.js": "/places/static/js/main.dc790f1b.chunk.js",
+    "main.js.map": "/places/static/js/main.dc790f1b.chunk.js.map",
+    "runtime-main.js": "/places/static/js/runtime-main.d2c749bb.js",
+    "runtime-main.js.map": "/places/static/js/runtime-main.d2c749bb.js.map",
+    "static/js/2.eb8bb313.chunk.js": "/places/static/js/2.eb8bb313.chunk.js",
+    "static/js/2.eb8bb313.chunk.js.map": "/places/static/js/2.eb8bb313.chunk.js.map",
+    "index.html": "/places/index.html",
+    "precache-manifest.29b0da2167a0ad000539d61dace3e6c9.js": "/places/precache-manifest.29b0da2167a0ad000539d61dace3e6c9.js",
+    "service-worker.js": "/places/service-worker.js",
+    "static/css/main.121f05a1.chunk.css.map": "/places/static/css/main.121f05a1.chunk.css.map",
+    "static/js/2.eb8bb313.chunk.js.LICENSE.txt": "/places/static/js/2.eb8bb313.chunk.js.LICENSE.txt",
+    "static/media/foursquare.svg": "/places/static/media/foursquare.dcea39ad.svg",
+    "static/media/google.svg": "/places/static/media/google.9367e4e3.svg",
+    "static/media/menu.svg": "/places/static/media/menu.b6b91991.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d2c749bb.js",
+    "static/js/2.eb8bb313.chunk.js",
+    "static/css/main.121f05a1.chunk.css",
+    "static/js/main.dc790f1b.chunk.js"
+  ]
+}
