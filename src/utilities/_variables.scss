@@ -1,0 +1,27 @@
+/* ==========================================================
+  Variables
+============================================================= */
+/* Colors --- */
+$base-color: #8F2A12;
+$light: #eee;
+$dark: #333;
+$complement: darken(#E4324C, 20%);
+
+/* lengths --- */
+$restaurant-list-height: 23.1rem;
+$remaining-sidebar-height: 7.7rem;
+$sidebar-width: 12.8rem;
+$sidebar-width-l: 18.22rem;
+
+/* Breakpoints --- */
+$break-s: 33rem; // 512px
+$break-m: 37.8125rem; // 605px
+$break-l: 44.4375rem; // 711px
+
+/* ==========================================================
+  Mixins
+============================================================= */
+@mixin background-border {
+  background-color: $light;
+  @content;
+}

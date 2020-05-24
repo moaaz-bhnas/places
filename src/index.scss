@@ -1,0 +1,330 @@
+@import "utilities/variables";
+
+/* ==========================================================
+  Base Styles
+============================================================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: $dark;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+button {
+  color: $complement;
+}
+
+button {
+  cursor: pointer;
+}
+
+small {
+  font-size: 1rem;
+}
+
+abbr {
+  text-decoration: none!important;
+}
+
+/* ==========================================================
+  App
+============================================================= */
+#app {
+  min-height: 100vh;
+  background-color: #eee;
+}
+
+/* ----------------------------------------
+  Header
+---------------------------------------- */
+#main-header {
+  text-align: center;
+  height: 4rem;
+  padding: 0 .5rem;
+  position: relative;
+  @include background-border {
+    border-bottom: 4px solid;
+  }
+  text-align: center;
+
+  h1 {
+    display: inline-block;
+    line-height: 3.75rem;
+    margin: 0;
+    @media screen and (min-width: $break-s) {
+      font-size: 1.5rem;
+    }
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    background-color: #ccc;
+    border-radius: .3rem;
+    &[aria-pressed="true"] {
+      background-color: #999;
+    }
+  }
+
+  #place-btn {
+    padding: .8rem .4rem;
+    margin-top: 0.388rem;
+    float: right;
+  }
+
+  #menu-btn {
+    width: 3rem; height: 2.7rem;
+    padding-top: .2rem;
+    margin-top: .525rem;
+    float: left;
+  }
+}
+
+/* ----------------------------------------
+  Main
+---------------------------------------- */
+main {
+  text-align: right;
+}
+
+/* Sidebar --- */
+#sidebar {
+  @include background-border {
+    border-right: 4px solid;
+  }
+  padding: 1rem .5rem;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+
+  #search-input {
+    padding: .6rem .3rem;
+  }
+
+  #restaurants-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    height: $restaurant-list-height;
+    overflow: auto;
+  }
+}
+
+// If browser supports 2d transforms
+.transforms #sidebar {
+  transition: transform .3s;
+
+  &[data-shown="true"] {
+    transform: translateX(0);
+    + #map {
+      width: calc(100% - #{$sidebar-width});
+
+      @media screen and (min-width: $break-l) {
+        width: calc(100% - #{$sidebar-width-l})
+      }
+    }
+  }
+
+  &[data-shown="false"] {
+    transform: translateX(-100%);
+    + #map {
+      width: 100%;
+    }
+  }
+}
+
+// If browser doesn't support 2d transforms
+.no-transforms #sidebar {
+  &[data-shown="true"] {
+    left: 0;
+    + #map {
+      width: calc(100% - #{$sidebar-width});
+
+      @media screen and (min-width: $break-l) {
+        width: calc(100% - #{$sidebar-width-l})
+      }
+    }
+  }
+
+  &[data-shown="false"] {
+    left: -$sidebar-width-l;
+    + #map {
+      width: 100%;
+    }
+  }
+}
+
+#restaurants-list {
+    margin: 0 auto;
+    max-width: 11.5rem;
+    @media screen and (min-width: $break-l) {
+      max-width: 17rem;
+      width: 17rem;
+  }
+
+  button {
+    width: 100%;
+    padding: .82rem .3rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgba($color: $complement, $alpha: .3);
+    transition: border-color .2s;
+
+    &:hover,
+    &:focus {
+      border-color: (rgba($color: $complement, $alpha: 1.0))
+    }
+  }
+}
+
+/* Map --- */
+#map {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - #{$sidebar-width});
+  height: $restaurant-list-height + $remaining-sidebar-height;
+  transition: width .3s;
+
+  @media screen and (min-width: $break-l) {
+    width: calc(100% - #{$sidebar-width-l})
+  }
+}
+
+#info-window {
+  // font-size: 1rem;
+  text-align: left;
+  @media screen and (min-width: 839px) {
+    width: 380px;
+  }
+
+  img {
+    max-width: 10rem;
+    max-height: 10rem;
+    @media screen and (min-width: 839px) {
+      margin: 0 1rem 1rem 0;
+      float: left;
+    }
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  #categories {
+    margin: .3rem 0 1rem;
+    list-style: none;
+  }
+
+  #rating,
+  #likes {
+    margin: 0;
+  }
+
+  #formattedAddress {
+    clear: both;
+  }
+}
+
+
+/* ----- Restaurants List ----- */
+.restaurants-list li {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: .7rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+
+  transition: border-bottom .3s;
+}
+
+.restaurants-list li:hover {
+  border-bottom: 1px solid rgba(30, 30, 30, .7);
+}
+
+/* ===============================================
+  Footer
+================================================== */
+footer {
+  text-align: center;
+  @include background-border {
+    border-top: 4px solid;
+  }
+  padding: 1rem 0;
+
+  p {
+    margin: 0;
+    line-height: 1.5;
+
+    + p {
+      margin-top: .7rem;
+    }
+  }
+
+  .api-icon {
+    width: 1.4rem;
+    vertical-align: middle;
+  }
+}
+
+/* ===============================================
+  Modal Dialog
+================================================== */
+#modal-background {
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0;
+  z-index: 1;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#modal {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  padding: 1.5rem;
+  border: 7px solid;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px 5px rgba($color: #000000, $alpha: .5);
+  max-width: 25rem;
+  line-height: 1.3;
+  @media screen and (min-width: 417px) {
+    width: 25rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #description {
+    position: relative;
+    top: -.2rem;
+  }
+
+  li + li {
+    margin-top: .5rem;
+  }
+
+  #submit-container {
+    text-align: center;
+  }
+
+  #submit-btn {
+    padding: .8rem 1rem;
+  }
+
+  #close-btn {
+    font-size: 2rem;
+    position: absolute;
+    top: -.5rem; right: -.5rem;
+    padding: .1rem .6rem .3rem;
+    border-radius: 1rem;
+  }
+}
