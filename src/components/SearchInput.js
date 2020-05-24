@@ -12,7 +12,7 @@ const SearchInput = props => {
         aria-label="Search Restaurants"
         id="search-input"
         type="search"
-        placeholder="Search Restaurants ..."
+        placeholder="Search Place ..."
         tabIndex={sidebarShown ? '0' : '-1'}
         value={query}
         onChange={event => updateQuery(event.target.value)}

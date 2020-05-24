@@ -31,7 +31,7 @@ class Header extends Component {
     const {sidebarShown, modalOpened, openModal, toggleSidebar} = this.props; 
     return (
       <header id="main-header" role="banner">
-        <h1>{smallScreen ? 'RR' : 'Recommended Restaurants'}</h1>
+        <h1>Places</h1>
         <button 
           type="button" 
           id="menu-btn"

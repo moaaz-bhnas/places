@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   getVenus(place) {
-    window.fetch(`https://api.foursquare.com/v2/venues/explore?near=${place}&limit=20&section=food&v=20181209&client_id=${clientId}&client_secret=${clientSecret}`)
+    window.fetch(`https://api.foursquare.com/v2/venues/explore?near=${place}&limit=20&section=topPicks&v=20181209&client_id=${clientId}&client_secret=${clientSecret}`)
       .then(response => response.json())
       .then(data => {
         const restaurants = data.response.groups[0].items;

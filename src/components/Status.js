@@ -8,7 +8,7 @@ const Status = props => {
       aria-live="polite" 
       aria-atomic="true"
     >
-      {props.restaurantsCount} restaurants
+      {props.restaurantsCount} places
     </p>
   );
 }
