@@ -11,7 +11,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "escape-string-regexp": "^4.0.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "promise-polyfill": "^8.1.3"
   },
   "scripts": {
